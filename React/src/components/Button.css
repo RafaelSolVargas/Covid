@@ -1,0 +1,18 @@
+.button-component {
+    background-color: rgb(32, 32, 32);
+    height: 100%;
+    padding: 0 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    color: snow;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s ease;
+}
+
+.button-component:hover {
+    background-color: snow;
+    color: rgb(32, 32, 32);
+}
