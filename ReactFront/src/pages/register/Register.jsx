@@ -16,15 +16,17 @@ const Register = () => {
     const history = useHistory()
 
 
-    const handleValuesChange = e => setValues({ ...values, [e.target.name]: e.target.value })
-
+    const handleValuesChange = e => {
+        setValues({ ...values, [e.target.name]: e.target.value })
+    }
 
     const handleRegisterClick = async () => {
-        const [hasErrors, response] = await PostData()
 
-        if (hasErrors) return
+        const [hasErrors, response] = await PostData(values)
 
-        setValues({ response })
+        if (hasErrors) return console.log('Erro')
+
+        console.log(response)
     }
 
     const handleSeeDataClick = () => {
@@ -53,28 +55,27 @@ const Register = () => {
                     <div className='form-group'>
                         <label htmlFor='sexo'>Sexo: </label>
                         <div className='radio-container'>
-                            <input type='radio' name='sexo' className='radio' value='masculino'></input>
+                            <input type='radio' name='sexo' className='radio' value='masculino' onChange={handleValuesChange}></input>
                             <label className='radio-labels'>Masculino</label>
-                            <input type='radio' name='sexo' className='radio' value='feminino'></input>
+                            <input type='radio' name='sexo' className='radio' value='feminino' onChange={handleValuesChange}></input>
                             <label className='radio-labels'>Feminino</label>
                         </div>
-
                     </div>
                     <div className='form-group'>
                         <label htmlFor='tosse'>Tosse: </label>
                         <div className='radio-container'>
-                            <input type='radio' name='tosse' className='radio' value='true'></input>
+                            <input type='radio' name='tosse' className='radio' value='true' onChange={handleValuesChange}></input>
                             <label className='radio-labels'>Sim</label>
-                            <input type='radio' name='tosse' className='radio' value='false'></input>
+                            <input type='radio' name='tosse' className='radio' value='false' onChange={handleValuesChange}></input>
                             <label className='radio-labels'>Não</label>
                         </div>
                     </div>
                     <div className='form-group'>
                         <label htmlFor='obito'>Óbito: </label>
                         <div className='radio-container'>
-                            <input type='radio' name='obito' className='radio' value='true'></input>
+                            <input type='radio' name='obito' className='radio' value='true' onChange={handleValuesChange}></input>
                             <label className='radio-labels'>Sim</label>
-                            <input type='radio' name='obito' className='radio' value='false'></input>
+                            <input type='radio' name='obito' className='radio' value='false' onChange={handleValuesChange}></input>
                             <label className='radio-labels'>Não</label>
                         </div>
                     </div>

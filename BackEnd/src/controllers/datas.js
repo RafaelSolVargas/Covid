@@ -4,8 +4,9 @@ const { Data } = require('../models');
 
 module.exports = {
     createData: async (req, res) => {
+        console.log('Create Data')
         const { cidade, bairro, data, tosse, obito, sexo } = req.body;
-
+        console.log(tosse, obito, sexo)
         /* Validation  */
         const errors = validationResult(req);
         if (!errors.isEmpty()) return res.status(401).json({ ValidationErrors: errors.array() });

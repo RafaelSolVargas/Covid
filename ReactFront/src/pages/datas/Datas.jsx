@@ -5,15 +5,15 @@ import Button from "../../components/Button";
 import './Datas.css'
 
 const Datas = () => {
-    const [datas, setDatas] = useState([-1, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1])
+    const [datas, setDatas] = useState([])
     const history = useHistory()
 
     const loadTasks = async () => {
         const [hasErrors, response] = await LoadDatas()
 
-        if (hasErrors) return
+        if (hasErrors) return console.log('Erro')
 
-        setDatas(response)
+        setDatas(response.datas)
     }
 
     const handleSeeRegisterClick = () => {
@@ -29,29 +29,29 @@ const Datas = () => {
             <div className='label-datas'>
                 <label>Registros de Covid</label>
             </div>
+            <div className='lista-datas'>
+                <div className='titulos-datas'>
+                    <p>Data Registro</p>
+                    <p>Cidade</p>
+                    <p>Bairro</p>
+                    <p>Sexo</p>
+                    <p>Tosse</p>
+                    <p>Óbito</p>
+                </div>
+            </div>
             <ul className='lista-datas'>
                 {datas.map(data => {
                     return (
-                        (data === -1) ?
-                            <div className='titulos-datas'>
-                                <p>Data Registro</p>
-                                <p>Cidade</p>
-                                <p>Bairro</p>
-                                <p>Tosse</p>
-                                <p>Sintomas</p>
-                                <p>Óbito</p>
+                        <li key={data.id} >
+                            <div className='data-container'>
+                                <p >{data.data}</p>
+                                <p >{data.cidade}</p>
+                                <p >{data.bairro}</p>
+                                <p >{data.sexo}</p>
+                                <p >{(data.tosse === true) ? 'sim' : 'não'}</p>
+                                <p >{(data.obito === true) ? 'sim' : 'não'}</p>
                             </div>
-                            :
-                            <li key={data} >
-                                <div className='data-container'>
-                                    <p >28/10/2021</p>
-                                    <p >Florianopol</p>
-                                    <p >Ingle</p>
-                                    <p >Sdddim</p>
-                                    <p >Sim</p>
-                                    <p >Não</p>
-                                </div>
-                            </li>
+                        </li>
                     )
                 })}
             </ul>
