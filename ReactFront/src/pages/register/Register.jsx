@@ -11,12 +11,15 @@ const Register = () => {
         bairro: '',
         sexo: '',
         tosse: false,
-        obito: false
+        obito: false,
+        carro: ''
     })
     const history = useHistory()
 
 
     const handleValuesChange = e => {
+        console.log(e.target.name)
+        console.log(e.target.value)
         setValues({ ...values, [e.target.name]: e.target.value })
     }
 
@@ -64,12 +67,20 @@ const Register = () => {
                     <div className='form-group'>
                         <label htmlFor='tosse'>Tosse: </label>
                         <div className='radio-container'>
-                            <input type='radio' name='tosse' className='radio' value='true' onChange={handleValuesChange}></input>
+                            <input type='' name='tosse' className='radio' value='true' onChange={handleValuesChange}></input>
                             <label className='radio-labels'>Sim</label>
                             <input type='radio' name='tosse' className='radio' value='false' onChange={handleValuesChange}></input>
                             <label className='radio-labels'>Não</label>
                         </div>
                     </div>
+                    <select name="carro" id="cars" onChange={handleValuesChange}>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+
+
                     <div className='form-group'>
                         <label htmlFor='obito'>Óbito: </label>
                         <div className='radio-container'>

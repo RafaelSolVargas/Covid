@@ -1,0 +1,49 @@
+.container-datas {
+    background: rgb(116, 116, 116);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    border: 2px solid silver;
+    border-radius: 8px;
+    padding: 5px 30px 30px 30px;
+    z-index: 2;  
+}
+
+
+.data-container {
+    display: grid;
+    grid-template-columns: 120px 120px 100px 70px 100px 70px;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.container-titulo {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.titulo {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1.5px black solid;
+}
+
+
+.button-group {
+    margin-top: 35px;
+    height: 30px;
+}
+
+#btn-see-register {
+    width: 130px;
+}
+#btn-see-data {
+    width: 130px;
+}
+

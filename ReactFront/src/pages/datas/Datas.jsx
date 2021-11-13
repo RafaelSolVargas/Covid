@@ -13,6 +13,11 @@ const Datas = () => {
 
         if (hasErrors) return console.log('Erro')
 
+
+        for (let i = 0; i < response.datas.length; i++) {
+            response.datas[i].data = new Date(response.datas[i].data).toLocaleDateString()
+        }
+
         setDatas(response.datas)
     }
 

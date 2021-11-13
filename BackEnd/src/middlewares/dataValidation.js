@@ -9,6 +9,7 @@ module.exports = {
             .withMessage('Cidade cannot be empty')
             .bail()
             .custom(async (value) => {
+                console.log('Chamado')
                 if (!await isOnlyLetters(value)) { throw new Error('Cidade só pode ter letras'); }
             }),
         /* Bairro - Somente Letras */
@@ -33,6 +34,10 @@ module.exports = {
             .notEmpty()
             .withMessage('Obito não pode ser vazio')
             .isBoolean()
-            .withMessage('Obito precisa ser true ou false')
+            .withMessage('Obito precisa ser true ou false'),
+        check('data')
+            .toDate()
+            .isISO8601()
+            .withMessage('Data errada')
     ],
 };
